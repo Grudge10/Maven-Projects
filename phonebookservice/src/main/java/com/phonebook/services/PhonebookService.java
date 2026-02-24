@@ -34,14 +34,8 @@ public class PhonebookService {
     public void saveToCSV(String filename) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Map.Entry<String, Contact> contact : contacts.entrySet()) {
-                StringBuilder s = new StringBuilder();
-
-                s.append(contact.getKey()).append("=");
-                
                 Contact newContact = contact.getValue();
-                s.append(newContact.toCsvString());
-
-                writer.write(s.toString());
+                writer.write(newContact.toString());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -51,6 +45,6 @@ public class PhonebookService {
     }
 
     public void loadFromCSV(String filename) {
-        
+
     }
 }
