@@ -10,32 +10,36 @@ public class PhonebookService {
 
     public void addContact(Contact c) {
         contacts.put(c.getName(), c);
-        System.out.println("Contact has been added!");
     }
 
-    public void searchContact(String name) {
+    public boolean searchContact(String name) {
         if (contacts.containsKey(name)) {
-            System.out.println(name + " has been found!");
             System.out.println(contacts.get(name));
+            return true;
         } else {
-            System.out.println(name + " does not exist!");
+            return false;
         }
     }
 
-    public void removeContact(String name) {
+    public boolean removeContact(String name) {
         if (contacts.containsKey(name)) {
             contacts.remove(name);
-            System.out.println("successfully removed " + name + "!");
+            return true;
         } else {
-            System.out.println(name + " does not exist!");
+            return false;
         }
     }
 
     public void saveToCSV(String filename) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (Map.Entry<String, Contact> contact : contacts.entrySet()) {
+                StringBuilder s = new StringBuilder();
+
                 Contact newContact = contact.getValue();
-                writer.write(newContact.toString());
+
+                s.append(newContact.toCsvString()).append("\n");
+
+                writer.write(s.toString());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
