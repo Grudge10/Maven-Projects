@@ -117,10 +117,13 @@ public class Main {
         return s;
     }
 
+    // method that displays all contacts
     public static void displayAll(PhonebookService service) {
+        // display header
         System.out.println("+-----------------------+-----------------------+-----------------------+");
         System.out.println("| Name                  | Phone Number          | Email                 |");
 
+        // loop through all contacts
         for (Contact contact : service.getAllContacts()) {
             System.out.println("+-----------------------+-----------------------+-----------------------+");
             System.out.printf("| %-22s| %-22s| %-22s|\n", contact.getName(), contact.getPhoneNumber(),
