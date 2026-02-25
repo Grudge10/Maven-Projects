@@ -75,7 +75,7 @@ public class PhonebookService {
                 }
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("No existing phonebook found. Starting fresh!");
         } catch (IOException e) {
             e.printStackTrace();
         }
