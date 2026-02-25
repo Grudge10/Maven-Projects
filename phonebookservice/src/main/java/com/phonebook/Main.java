@@ -20,7 +20,7 @@ public class Main {
             // validate the input until the user inputs a valid value
             int choice;
             while (true) {
-                System.out.println("Choice: ");
+                System.out.print("Choice: ");
 
                 // Use try catch method for when user puts the wrong data type value
                 try {
@@ -101,7 +101,7 @@ public class Main {
 
         // validate the input until the user inputs a valid value
         while (true) {
-            System.out.println(message);
+            System.out.print(message);
 
             // get the user's choice
             s = input.nextLine().trim();
