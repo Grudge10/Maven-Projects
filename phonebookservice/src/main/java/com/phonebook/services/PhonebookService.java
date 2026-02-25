@@ -15,7 +15,7 @@ public class PhonebookService {
 
     // method that adds the contact object into the map
     public void addContact(Contact c) {
-        contacts.put(c.getName(), c);
+        contacts.put(c.getName().toLowerCase(), c);
     }
 
     // method that searches for the key and returns the searched contact object
