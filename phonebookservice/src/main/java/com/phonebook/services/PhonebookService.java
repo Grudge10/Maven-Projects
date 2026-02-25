@@ -8,6 +8,11 @@ import com.phonebook.models.Contact;
 public class PhonebookService {
     private Map<String, Contact> contacts = new HashMap<>();
 
+    // method that returns an arraylist of all contact objects
+    public ArrayList<Contact> getAllContacts() {
+        return new ArrayList<>(contacts.values());
+    }
+
     // method that adds the contact object into the map
     public void addContact(Contact c) {
         contacts.put(c.getName(), c);
