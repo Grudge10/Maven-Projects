@@ -20,9 +20,12 @@ public class PhonebookService {
 
     // method that searches for the key and returns the searched contact object
     public Contact searchContact(String name) {
+        // convert the search key to lowercase
+        String searchKey = name.toLowerCase();
+
         // check if key exists. if yes, return contact value
-        if (contacts.containsKey(name)) {
-            return contacts.get(name);
+        if (contacts.containsKey(searchKey)) {
+            return contacts.get(searchKey);
         } else {
             return null;
         }
@@ -30,9 +33,12 @@ public class PhonebookService {
 
     // method that searches for the key then removes it, and returns boolean value
     public boolean removeContact(String name) {
+        // convert the search key to lowercase
+        String searchKey = name.toLowerCase();
+
         // check if the key exists
-        if (contacts.containsKey(name)) {
-            contacts.remove(name);
+        if (contacts.containsKey(searchKey)) {
+            contacts.remove(searchKey);
             return true;
         } else {
             return false;
@@ -71,7 +77,7 @@ public class PhonebookService {
                     // create a contact object and add in the values
                     Contact loadContact = new Contact(data[0], data[1], data[2]);
                     // add the contact into the hashmap
-                    contacts.put(data[0], loadContact);
+                    contacts.put(data[0].toLowerCase(), loadContact);
                 }
             }
         } catch (FileNotFoundException e) {

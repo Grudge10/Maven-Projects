@@ -104,7 +104,7 @@ public class Main {
             System.out.print(message);
 
             // get the user's choice
-            s = input.nextLine().trim().toLowerCase();
+            s = input.nextLine().trim();
 
             // check if string is not empty
             if (!s.isEmpty()) {
